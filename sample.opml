@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Sample Mind Map</title>
+    <dateCreated>Tue, 31 Dec 2024 05:00:00 GMT</dateCreated>
+    <dateModified>Tue, 31 Dec 2024 05:00:00 GMT</dateModified>
+    <ownerName>MindMap User</ownerName>
+  </head>
+  <body>
+    <outline text="프로젝트 계획" _position_x="0" _position_y="0" _color="#87CEEB">
+      <outline text="요구사항 분석" _position_x="-150" _position_y="100" _color="#98FB98">
+        <outline text="사용자 인터뷰" _position_x="-200" _position_y="200" />
+        <outline text="경쟁사 분석" _position_x="-100" _position_y="200" />
+      </outline>
+      <outline text="설계" _position_x="0" _position_y="100" _color="#FFB6C1">
+        <outline text="데이터 모델" _position_x="-50" _position_y="200" />
+        <outline text="UI/UX 디자인" _position_x="50" _position_y="200" />
+      </outline>
+      <outline text="개발" _position_x="150" _position_y="100" _color="#DDA0DD">
+        <outline text="백엔드" _position_x="100" _position_y="200" />
+        <outline text="프론트엔드" _position_x="200" _position_y="200" />
+      </outline>
+    </outline>
+  </body>
+</opml>

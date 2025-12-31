@@ -1,0 +1,86 @@
+name: MindMap
+options:
+  bundleIdPrefix: com.mindmap
+  deploymentTarget:
+    macOS: "14.0"
+    iOS: "17.0"
+  developmentLanguage: ko
+
+settings:
+  SWIFT_VERSION: "5.9"
+  MARKETING_VERSION: "1.0.0"
+  CURRENT_PROJECT_VERSION: "1"
+
+packages:
+  Collections:
+    url: https://github.com/apple/swift-collections
+    from: 1.1.0
+
+targets:
+  MindMap-macOS:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: MindMap
+        excludes:
+          - "**/*.md"
+      - path: MindMapMac
+    resources:
+      - MindMapMac/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mindmap.macos
+        INFOPLIST_FILE: MindMapMac/Info.plist
+        ENABLE_HARDENED_RUNTIME: YES
+        COMBINE_HIDPI_IMAGES: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: MindMapMac/MindMap.entitlements
+        CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - package: Collections
+    entitlementFiles:
+      - MindMapMac/MindMap.entitlements
+
+  MindMap-iOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: MindMap
+        excludes:
+          - "**/*.md"
+      - path: MindMapiOS
+    resources:
+      - MindMapiOS/Assets.xcassets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.mindmap.ios
+        INFOPLIST_FILE: MindMapiOS/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: MindMapiOS/MindMap.entitlements
+        CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - package: Collections
+    entitlementFiles:
+      - MindMapiOS/MindMap.entitlements
+
+schemes:
+  MindMap-macOS:
+    build:
+      targets:
+        MindMap-macOS: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+
+  MindMap-iOS:
+    build:
+      targets:
+        MindMap-iOS: all
+    run:
+      config: Debug
+    archive:
+      config: Release
